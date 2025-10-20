@@ -51,15 +51,7 @@ make env
 
 This creates the required directories and `.env` file with your user ID.
 
-### 3. Initialize Airflow
-
-```bash
-make init
-```
-
-This initializes the Airflow database and creates the default admin user (username: `airflow`, password: `airflow`).
-
-### 4. Start Services
+### 3. Start Services
 
 ```bash
 make upd
@@ -221,7 +213,6 @@ ORDER BY upvotes DESC;
 ```bash
 make help          # Show all available commands
 make env           # Create directories and .env file
-make init          # Initialize Airflow database
 make up            # Start services (foreground)
 make upd           # Start services (detached)
 make down          # Stop services

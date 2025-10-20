@@ -9,7 +9,6 @@ ENV_FILE := .env
 help:
 	@echo "Makefile commands:"
 	@echo "  make env        - Create required dirs & .env file"
-	@echo "  make init       - Initialize Airflow DB & first user"
 	@echo "  make up         - Start services in foreground"
 	@echo "  make upd        - Start services in detached mode"
 	@echo "  make down       - Stop & remove containers"
@@ -23,11 +22,6 @@ env:
 	mkdir -p dags logs plugins config
 	@echo "AIRFLOW_UID=$(AIRFLOW_UID)" > $(ENV_FILE)
 	@echo "Done: created folders (dags, logs, plugins, config) and $(ENV_FILE)"
-
-init: env
-	@echo "Initializing Airflow..."
-	docker compose --env-file $(ENV_FILE) up airflow-init
-	@echo "Initialization done. User: airflow / airflow"
 
 up:
 	@echo "Starting Airflow services (foreground)..."
